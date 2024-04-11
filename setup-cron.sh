@@ -3,7 +3,7 @@
 set -e
 
 # Create a new cron file
-echo "$CRON_SCHEDULE /bin/bash /etc/docker-cron/run-scripts.sh" > /etc/cron.d/run-scripts
+echo "$CRON_SCHEDULE /bin/bash /etc/docker-cron/run-scripts.sh > /proc/1/fd/1 " > /etc/cron.d/run-scripts
 
 # Apply permissions
 chmod 0644 /etc/cron.d/run-scripts
