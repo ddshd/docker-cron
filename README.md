@@ -15,7 +15,7 @@ services:
       - /your_scripts/location/:/scripts/
       - /your_startup_scripts/location/:/startup/ # Optional
     environment:
-      - CRON_SCHEDULE="5 4 * * sun"
+      CRON_SCHEDULE: '* * * * *'
     restart: always
 ```
 
