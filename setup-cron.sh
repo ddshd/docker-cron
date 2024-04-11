@@ -9,5 +9,8 @@ chmod 0644 /etc/cron.d/run-scripts
 # Apply the cron job
 crontab /etc/cron.d/run-scripts
 
+# Run startup scripts
+/etc/docker-cron/run-startup-scripts.sh
+
 # Start the cron service
 cron -f
