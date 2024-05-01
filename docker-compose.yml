@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  cron:
+    image: ghcr.io/ddshd/docker-cron:latest
+    volumes:
+      - /tmp/scripts/:/scripts/
+      - /tmp/startup/:/startup/ # Optional
+    environment:
+      CRON_SCHEDULE: '* * * * *'
+    restart: always
