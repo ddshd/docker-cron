@@ -8,4 +8,4 @@ for script in /startup/*.sh; do
     fi
 done
 
-python3 /etc/docker-cron/runner.py
+python3 -u /etc/docker-cron/runner.py

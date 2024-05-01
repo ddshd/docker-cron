@@ -5,7 +5,7 @@ import subprocess
 from croniter import croniter
 import os
 
-def task_to_run():
+def run_tasks():
     scripts = glob.glob('/scripts/*.sh')
     for script in scripts:
         print(f"[Running: {script}]")
@@ -14,7 +14,7 @@ def task_to_run():
         if result.stderr:
             print("Error:", result.stderr)
 
-def schedule_task(cron_expression):
+def schedule_tasks(cron_expression):
     base_time = datetime.datetime.now()
     iter = croniter(cron_expression, base_time)
     next_time = iter.get_next(datetime.datetime)
@@ -25,8 +25,9 @@ def schedule_task(cron_expression):
         if sleep_duration > 0:
             time.sleep(sleep_duration)
 
-        task_to_run()
+        run_tasks()
         next_time = iter.get_next(datetime.datetime)
 
+run_tasks()
 cron_expression = os.getenv("CRON_SCHEDULE")
-schedule_task(cron_expression)
+schedule_tasks(cron_expression)
